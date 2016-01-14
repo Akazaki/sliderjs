@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/*
+=====================================================================
+*
+*    Reset
+*
+* =================================================================== 
+*/
+body {
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Osaka,sans-serif;
+	margin:0px;
+	padding:0px;
+	font-size:80%;
+	line-height:1.5;
+	color:#CCCCCC;
+	list-style: none!important;
+}
+html,a,form,area,div,table,dl,dt,dd,ul,ol,li,dd,h1,h2,h3,h4,h5,h6,p{
+	margin:0px;
+	padding:0px;
+	border:none;
+	font-size: 100%;
+}
+img			{ border:none; }
+table		{ font-size:100%; border-collapse:collapse; border-spacing:0; text-align:left; }
+ul li,
+ol li		{ list-style: none!important; }
+
+a			{ color:#666; text-decoration: none; }
+a:focus		{ color:#ccc; }
+a:visited	{ color:#666/*#5db8c5*/; }
+
+/*
+select,
+input {
+	margin: 0;
+	padding: 0;
+}
+*/
+
+/*
+=====================================================================
+*
+*    全ページ共通
+*
+* =================================================================== 
+*/
+
+/* -----------------------------------------------------------------
+ body
+------------------------------------------------------------------ */
+body{ background-color:#FFFFFF; }
+
+
+/*
+=====================================================================
+*
+*    clearfix
+*
+* =================================================================== 
+*/
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.clearfix{
+	display:inline-block;
+}
+/* Hides from IE-mac \*/
+*html .clearfix{
+	height:1%;
+}
+.clearfix{
+	display:block;
+}
+/* End hide from IE-mac */
