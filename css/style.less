@@ -17,18 +17,17 @@ body{
 }
 
 #slider {
-	position: relative;
-	height: 405px;
 	overflow: hidden;
 
 	.slider_cont{
-		position: relative;
-		width: 4000px;
+		position: absolute;
 		overflow: hidden;
+		display: block;
+		margin: 0 auto;
 
 		li {
 			width: 320px;
-			position: relative;
+			display: inline;
 			left: 0;
 			margin: 10px 0;
 			float: left;
@@ -36,27 +35,20 @@ body{
 	}
 }
 
-#pagenation {
-	ul {
-		overflow: hidden;
-		width: 500px;
-		margin: 0 auto;
-
-		li {
-			float: left;
-
-			a {
-				color: green;
-				font-size: 120%;
-				text-align: center;
-			}
-		}
-
-		.active {
-			a {
-				color: #000;
-			}
-		}
-	}
+#prev {
+	position: fixed;
+	left: 0;
+	top: 200px;
+	font-size: 200%;
 }
 
+#next {
+	position: fixed;
+	right: 0;
+	top: 200px;
+	font-size: 200%;
+}
+
+.hide {
+	color: #000;
+}
