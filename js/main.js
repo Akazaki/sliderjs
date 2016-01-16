@@ -12,7 +12,8 @@ $(function(){
 	//画像の数
 	var li_length = $(slideLi).length;
 	//画像3枚分表示
-	$(".slider_cont").css("width", ((slideLi) * (liWidth)));
+	$(".slider_cont").css("width", ((li_length) * (liWidth)));
+	$("#slider").css("width", (3 * (liWidth)));
 	$(".slider_cont").css("height", (liHeight));
 	// カルーセルパネルの幅を取得
     var ulWidth = $(".slider_cont").width();
@@ -48,7 +49,7 @@ $(function(){
 				function(){
 					var ul_pos = boxPosition(".slider_cont","left");
 					$('#prev').attr("class","show");
-					if(sliderWidth > (ulWidth+ul_pos)) {
+					if(sliderWidth >= (ulWidth+ul_pos)) {
 						$('#next').attr("class","hide");
 					}
 				}

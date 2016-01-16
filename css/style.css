@@ -14,9 +14,12 @@ body {
 }
 #slider {
   overflow: hidden;
+  margin: 0 auto;
+  display: block;
+  position: relative;
 }
 #slider .slider_cont {
-  position: absolute;
+  position: relative;
   overflow: hidden;
   display: block;
   margin: 0 auto;
