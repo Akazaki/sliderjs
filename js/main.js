@@ -1,6 +1,6 @@
 $(function(){
 	//動かす画像の数
-	var li_move = 3;
+	var li_move = 1;
 	//prev,nextボタン追加
 	$(".slider_cont").append('<div id="prev" class="hide">◀︎</div><div id="next" class="show">▶︎</div>');
 	//画像
@@ -19,14 +19,14 @@ $(function(){
     var ulWidth = $(".slider_cont").width();
     //#sliderのwidth
     var sliderWidth = $("#slider").width();
-    console.log(li_length);
+    console.log(slideLi);
 
     $('#prev').click(function(){
     	// prevをクリックしたときにclass=hideが指定されていなければ、以下を実行
         if($(this).attr("class") != "hide") {
 			$('.slider_cont:not(:animated)').animate(
 				{left:'+='+liWidth*li_move},
-                600,
+                300,
                 function(){
                     // アニメーションが完了したらulのposition-leftの位置を取得
                     var ul_pos = boxPosition(".slider_cont","left");
@@ -40,22 +40,38 @@ $(function(){
 	        );
 		}
 	});
+
 	$('#next').click(function(){
-		// nextをクリックしたときにclass=hideが指定されていなければ、以下を実行（以下略）
+		imageMove();
+	});
+
+	// nextをクリックしたときにclass=hideが指定されていなければ、以下を実行（以下略）
+	function imageMove(){
 		if($(this).attr("class") != "hide") {
 			$('.slider_cont:not(:animated)').animate(
 				{left:'-='+liWidth*li_move},
-				600,
+				300,
 				function(){
 					var ul_pos = boxPosition(".slider_cont","left");
 					$('#prev').attr("class","show");
-					if(sliderWidth >= (ulWidth+ul_pos)) {
+					//今表示されてる画像+残りの画像まで行けばnextをhideに
+					if(ul_pos === (-ulWidth + sliderWidth)) {
 						$('#next').attr("class","hide");
+						clearInterval(loopSwitch);
 					}
 				}
 			);
 		}
-	});
+	}
+
+	//一定時間でimageMoveを実行
+	var loopSwitch = setInterval(loop, 4000);
+    function loop() {
+        imageMove();
+    }
+
+	//setInterval("nextmove()",500);
+
 	function boxPosition(ele,pos) {
 	 	// 指定されたエレメントのpositionの各値を取得
 		var position = $(ele).position();
